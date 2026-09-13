@@ -360,7 +360,7 @@ export function HomePage() {
             >
               صُممت وطُورت بواسطة
             </p>
-            <h2>عبدالله محمد عبدالسلام</h2>
+            <h2>عبد الله محمد عبد السلام</h2>
             <strong className={styles["highlight"]}>
               Software engineer & Full Stack developer
             </strong>
