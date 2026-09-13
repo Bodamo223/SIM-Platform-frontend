@@ -1,14 +1,44 @@
 .hero-section {
   min-height: calc(100vh + 80px);
   padding: 0 35px;
+  color: var(--color-text);
   display: flex;
-  justify-content: center;
-  gap: 20px;
+  justify-content: space-between;
+  gap: 10px;
   position: relative;
   overflow: hidden;
   border-bottom: 5px solid var(--color-border);
 
-  color: var(--color-text);
+  --glow-x: 0px;
+  --glow-y: 0px;
+
+  .hero-circuit {
+    position: absolute;
+    inset: 0;
+    opacity: 0.6;
+    pointer-events: none;
+    z-index: 0;
+
+    .svg {
+      :global(.dark) & {
+        stroke: #3b3866;
+      }
+    }
+
+    .node {
+      animation: twinkle 2s ease-in-out infinite;
+      fill: var(--color-primary);
+
+      :global(.dark) & {
+        fill: #1a54d1;
+      }
+    }
+
+    .particle {
+      fill: var(--color-primary);
+      opacity: 0.7;
+    }
+  }
 
   .hero-text {
     display: flex;
@@ -81,7 +111,7 @@
       }
 
       .services-btn {
-        background-color: transparent;
+        background-color: var(--color-bg);
         border: 2px solid var(--color-border);
         color: var(--color-text);
       }
@@ -98,8 +128,6 @@
     background-color: var(--color-surface-alt);
     display: flex;
     align-items: stretch;
-    flex: 1;
-    justify-content: space-between;
     border: 2px solid var(--color-border);
     text-align: right;
     height: fit-content;
@@ -109,10 +137,12 @@
     padding: 0 10px 0 0;
     box-shadow: var(--shadow-card);
     will-change: transform, box-shadow;
-    animation: floatAndGlow 6s ease-in-out infinite;
     position: relative;
     z-index: 1;
+    animation: UpAndDown 5s 2s ease-in-out infinite;
     transition:
+      UpAndDown 2s cubic-bezier(0.16, 1, 0.3, 1),
+      box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
       opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
       transform 2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 
@@ -132,6 +162,7 @@
     .developer-info {
       display: flex;
       flex-direction: column;
+      flex: 1;
       align-items: end;
       padding: 20px 10px;
       gap: 10px;
@@ -193,15 +224,15 @@
       0 0 25px -5px var(--color-primary-hover),
       0 0 0 1px var(--color-primary-hover);
   }
+}
 
-  @keyframes floatAndGlow {
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
-    50% {
-      transform: translateY(-8px); /* Smooth 8px vertical float */
-    }
+@keyframes UpAndDown {
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }
 
@@ -248,7 +279,6 @@
       border-radius: 20px;
       padding: 28px 25px 25px 25px;
       flex: 1;
-      transition: all 0.25s ease !important;
 
       :global(.dark) & {
         border: 1.5px solid transparent;
@@ -427,6 +457,7 @@
   opacity: 0;
   transform: translateY(50px);
   transition:
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
     transform 2s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
@@ -440,6 +471,7 @@
   opacity: 0;
   transform: translateX(50px);
   transition:
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
     transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -448,6 +480,7 @@
   opacity: 0;
   transform: translateX(-50px);
   transition:
+    box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
     transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -457,6 +490,6 @@
   opacity: 1;
   transform: translateX(0);
   transition:
-    opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
+    v opacity 2s cubic-bezier(0.16, 1, 0.3, 1),
     transform 2s cubic-bezier(0.16, 1, 0.3, 1);
 }
