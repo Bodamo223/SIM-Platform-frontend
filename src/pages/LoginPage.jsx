@@ -2,8 +2,6 @@ import { useState, useRef, useLayoutEffect } from "react";
 import styles from "../css/LoginPage.module.css";
 import { Link } from "react-router-dom";
 
-// دالة القياس — بتقيس ارتفاع عنصر حتى لو display:none حاليًا
-// من غير ما تسبب أي ومضة بصرية للمستخدم
 function measureHeight(ref) {
   const el = ref.current;
   if (!el) return 0;
@@ -12,13 +10,12 @@ function measureHeight(ref) {
   const prevVisibility = el.style.visibility;
   const prevPosition = el.style.position;
 
-  el.style.visibility = "hidden"; // مش ظاهر
-  el.style.position = "absolute"; // مش بياخد مساحة من الصفحة
-  el.style.display = "flex"; // نجبره ياخد أبعاده الحقيقية
+  el.style.visibility = "hidden";
+  el.style.position = "absolute";
+  el.style.display = "flex";
 
-  const height = el.offsetHeight; // القياس الفعلي
+  const height = el.offsetHeight;
 
-  // رجّعه لحالته الأصلية فورًا (قبل أي رسم بصري)
   el.style.display = prevDisplay;
   el.style.visibility = prevVisibility;
   el.style.position = prevPosition;

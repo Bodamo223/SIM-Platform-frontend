@@ -1,5 +1,8 @@
+import { useState } from "react";
 import styles from "../css/NewPasswordPage.module.css";
 export function NewPasswordPage() {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmendPassword, setShowConfirmedPassword] = useState(false);
   return (
     <>
       <div className={styles["wrapper"]}>
@@ -11,20 +14,36 @@ export function NewPasswordPage() {
             <div className={styles["heading"]}>
               <h1>كلمة مرور جديدة</h1>
               <p>
-                لحساب bodamo223@gmail.com اختر كلمة مرور قوية ولا تستخدمها في
-                حسابات أخرى.
+                لحساب{" "}
+                <span style={{ color: "var(--color-text)" }}>
+                  bodamo223@gmail.com
+                </span>{" "}
+                اختر كلمة مرور قوية ولا تستخدمها في حسابات أخرى.
               </p>
             </div>
             <div className={styles["input-container"]}>
-              <label htmlFor="new-password">كلمة المرور الجديدة</label>
-              <input type="password" id="new-password" />
-              <p>
-                يجب أن تتكون من ٨ أحرف على الأقل، وأن تحتوي على رقم وحرف كبير.
-              </p>
+              <input
+                type={showConfirmendPassword ? "text" : "password"}
+                placeholder="  "
+              />
+              <label>تاكيد كلمة المرور</label>
+              <i
+                id={styles["eye"]}
+                className={`fa-solid ${showConfirmendPassword ? "fa-eye-slash" : "fa-eye"}`}
+                onClick={() => setShowConfirmedPassword((prev) => !prev)}
+              ></i>
             </div>
             <div className={styles["input-container"]}>
-              <label htmlFor="confirm-new-password">تأكيد كلمة المرور</label>
-              <input type="password" id="confirm-new-password" />
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="  "
+              />
+              <label>كلمة المرور</label>
+              <i
+                id={styles["eye"]}
+                className={`fa-solid ${showPassword ? "fa-eye-slash" : "fa-eye"}`}
+                onClick={() => setShowPassword((prev) => !prev)}
+              ></i>
             </div>
             <button>تحديث كلمة المرور</button>
           </div>
