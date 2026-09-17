@@ -1,0 +1,377 @@
+.wrapper {
+  min-height: calc(100vh - 80px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    animation: fadeIn 2.5s;
+    z-index: 0;
+    position: relative;
+    display: flex;
+    margin: 50px;
+    min-width: 800px;
+    max-width: 100%;
+    height: fit-content;
+    border-radius: 20px;
+    border: 2px solid transparent;
+    background:
+      linear-gradient(var(--color-surface-alt), var(--color-surface-alt))
+        padding-box,
+      linear-gradient(135deg, #93c5fd 0%, #3b82f6 50%, #1845c2 100%) border-box;
+    overflow: hidden;
+
+    .register-form {
+      order: 2;
+      display: flex;
+      flex-direction: column;
+      min-height: 500px;
+      min-width: calc(50% + 50px);
+      padding: 25px 40px 30px;
+      text-align: center;
+      gap: 15px;
+      flex-grow: 1;
+
+      .heading {
+        color: var(--color-text);
+        margin-bottom: 10px;
+      }
+
+      .row {
+        display: flex;
+        gap: 20px;
+      }
+
+      .input-container {
+        height: 50px;
+        border-bottom: 2px solid var(--color-border);
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 7px;
+
+        label {
+          position: absolute;
+          right: 0;
+          color: var(--color-text-muted);
+          font-size: 13.5px;
+          font-weight: 700;
+          pointer-events: none;
+        }
+
+        & input:focus + label,
+        & input:not(:placeholder-shown) + label {
+          transform: translateY(-21px);
+          font-size: 13px;
+          color: var(--color-text-secondary);
+        }
+
+        input {
+          border: none;
+          outline: none;
+          text-align: right;
+          height: 100%;
+          width: 100%;
+          background: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--color-text);
+        }
+
+        i {
+          position: absolute;
+          left: 0;
+          color: var(--color-text);
+
+          &:hover {
+            transform: scale(1.15);
+          }
+        }
+
+        #eye:hover {
+          cursor: pointer;
+        }
+      }
+
+      button {
+        padding: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-primary);
+        font-weight: bold;
+        font-family: cairo;
+        border: none;
+        border: 2px solid var(--color-primary);
+        color: white;
+        border-radius: 10px;
+        margin-top: 15px;
+
+        &:hover {
+          background-color: transparent;
+          color: var(--color-primary);
+          cursor: pointer;
+        }
+      }
+      select {
+        background: transparent;
+        border: 1px solid var(--color-border);
+        padding: 10px;
+        border-radius: 10px;
+        outline: none;
+        color: var(--color-text);
+        outline: none;
+
+        option {
+          color: var(--color-text);
+          border-bottom: 1px solid var(--color-border);
+          background-color: var(--color-surface-alt);
+          text-align: right;
+          &:focus,
+          &:active {
+            outline: none;
+            border: none;
+            border-color: var(--color-border);
+          }
+        }
+      }
+    }
+
+    .login-form {
+      display: flex;
+      flex-direction: column;
+      padding: 25px 40px 30px;
+      text-align: center;
+      gap: 20px;
+      width: 50%;
+      min-height: 350px;
+      .heading {
+        color: var(--color-text);
+        margin-bottom: 10px;
+      }
+
+      .input-container {
+        min-height: 50px;
+        border-bottom: 2px solid var(--color-border);
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 7px;
+
+        label {
+          position: absolute;
+          right: 0;
+          color: var(--color-text-muted);
+          font-size: 13.5px;
+          font-weight: 700;
+          pointer-events: none;
+        }
+
+        & input:focus + label,
+        & input:not(:placeholder-shown) + label {
+          transform: translateY(-21px);
+          font-size: 13px;
+          color: var(--color-text-secondary);
+        }
+
+        .forgot-password {
+          color: var(--color-text);
+          text-decoration: none;
+          position: absolute;
+          left: 0;
+          bottom: -35px;
+          font-size: 14px;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        input {
+          outline: none;
+          text-align: right;
+          height: 100%;
+          width: 100%;
+          background: none;
+          border: none;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: var(--color-text);
+        }
+
+        i {
+          position: absolute;
+          left: 0;
+          color: var(--color-text);
+
+          &:hover {
+            transform: scale(1.15);
+          }
+        }
+
+        #eye:hover {
+          cursor: pointer;
+        }
+      }
+
+      button {
+        padding: 10px 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--color-primary);
+        font-weight: bold;
+        font-family: cairo;
+        border: none;
+        border: 2px solid var(--color-primary);
+        color: white;
+        border-radius: 10px;
+        margin-top: 15px;
+
+        &:hover {
+          background-color: transparent;
+          color: var(--color-primary);
+          cursor: pointer;
+        }
+      }
+    }
+    .panel {
+      position: absolute;
+      background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 50%, #1845c2 100%)
+        border-box;
+      min-height: 100%;
+      display: block;
+      width: 1000px;
+      right: -75%;
+      z-index: -1;
+    }
+
+    .login-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      max-width: 400px;
+      text-align: center;
+      gap: 25px;
+      z-index: 1;
+
+      h1 {
+        font-weight: 900;
+      }
+
+      p {
+        color: white;
+      }
+    }
+
+    .register-panel {
+      order: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      max-width: 400px;
+      text-align: center;
+      gap: 25px;
+      padding: 0 5px 0 15px;
+
+      h1 {
+        font-weight: 900;
+      }
+
+      p {
+        color: white;
+      }
+    }
+  }
+  .container:hover {
+    box-shadow:
+      0 0 25px -5px var(--color-primary-hover),
+      0 0 0 1px var(--color-primary-hover);
+  }
+}
+
+.panel.loginToRegisterAnimation {
+  animation: movePanelLeft 4s forwards;
+}
+
+.panel.registerToLoginAnimation {
+  animation: movePanelRight 4s forwards;
+}
+
+.login-form.loginToRegisterAnimation {
+  animation: fadeOut 2s forwards;
+}
+
+.login-form.registerToLoginAnimation {
+  animation: fadeIn 2s forwards;
+}
+
+.register-form.loginToRegisterAnimation {
+  animation: fadeIn 2s forwards;
+}
+
+.register-form.registerToLoginAnimation {
+  animation: fadeOut 2s forwards;
+}
+
+.login-panel.loginToRegisterAnimation {
+  animation: fadeOut 2s forwards;
+}
+
+.login-panel.registerToLoginAnimation {
+  animation: fadeIn 2s forwards;
+}
+
+.register-panel.loginToRegisterAnimation {
+  animation: fadeIn 2s forwards;
+}
+
+.register-panel.registerToLoginAnimation {
+  animation: fadeOut 2s forwards;
+}
+
+@keyframes movePanelRight {
+  from {
+    transform: translateX(-104%);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+
+@keyframes movePanelLeft {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-104%);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}

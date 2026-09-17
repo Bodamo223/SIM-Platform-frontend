@@ -1,5 +1,5 @@
 import styles from "../css/Navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useDarkMode } from "../hooks/useDarkMode";
 
 export function Navbar() {
@@ -190,7 +190,9 @@ export function Navbar() {
             </svg>
           </button>
         </div>
-        <div className={styles["login"]}>تسجيل الدخول</div>
+        <Link to="/login" className={styles["login"]}>
+          تسجيل الدخول
+        </Link>
       </div>
     </nav>
   );

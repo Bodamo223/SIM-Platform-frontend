@@ -136,13 +136,6 @@ export function HomePage() {
 
             <circle
               className={styles["node"]}
-              cx="300"
-              cy="20"
-              r="4"
-              style={{ animationDelay: "1.05s" }}
-            ></circle>
-            <circle
-              className={styles["node"]}
               cx="330"
               cy="119"
               r="4"

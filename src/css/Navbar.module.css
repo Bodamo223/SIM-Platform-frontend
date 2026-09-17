@@ -94,6 +94,7 @@ nav {
     color: white;
     font-weight: bold;
     font-size: 14px;
+    text-decoration: none;
   }
 
   .login:hover {

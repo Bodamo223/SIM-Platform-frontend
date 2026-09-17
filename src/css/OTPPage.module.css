@@ -1,0 +1,132 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: calc(100vh - 80px);
+
+  .container {
+    animation: fadeIn 2.5s forwards;
+    background:
+      linear-gradient(var(--color-surface-alt), var(--color-surface-alt))
+        padding-box,
+      linear-gradient(135deg, #93c5fd 0%, #3b82f6 50%, #1845c2 100%) border-box;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 40px;
+
+    .icon-container {
+      margin-top: 15px;
+      height: 60px;
+      width: 60px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, #93c5fd 0%, #3b82f6 50%, #1845c2 100%)
+        border-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      i {
+        color: white;
+        font-size: 23px;
+        text-align: center;
+      }
+    }
+
+    .heading {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      h1 {
+        color: var(--color-text);
+        font-weight: bold;
+        line-height: 1.5;
+      }
+    }
+
+    .OTP-input {
+      display: flex;
+      gap: 15px;
+
+      input {
+        display: flex;
+        height: 50px;
+        width: 50px;
+        border-radius: 10px;
+        background-color: var(--color-surface-alt);
+        font-size: 17px;
+        color: var(--color-text);
+        font-weight: bold;
+        border: none;
+        border: 2px solid var(--color-border);
+        justify-content: center;
+        align-items: center;
+        outline: none;
+        text-align: center;
+
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+
+        &:hover {
+          box-shadow:
+            0 0 15px -5px var(--color-primary-hover),
+            0 0 0 1px var(--color-primary-hover);
+        }
+      }
+    }
+
+    button {
+      color: white;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      width: 100%;
+
+      border: 2px solid var(--color-primary);
+      border-radius: 10px;
+      background-color: var(--color-primary);
+
+      &:hover {
+        background-color: var(--color-surface);
+        color: var(--color-primary);
+        cursor: pointer;
+      }
+    }
+
+    &:hover {
+      box-shadow:
+        0 0 25px -5px var(--color-primary-hover),
+        0 0 0 1px var(--color-primary-hover);
+    }
+
+    .resend-code {
+      span {
+        color: var(--color-text);
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
